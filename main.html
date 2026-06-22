@@ -4,22 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spidey · Nur Farhana CV</title>
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
     }
 
     body {
-      background: #2b0f0f; /* dark maroon background */
+      background: #2b0f0f;
       display: flex;
       justify-content: center;
       padding: 2rem 1.5rem;
-      background-image: radial-gradient(circle at 20% 30%, #5a1a1a 2px, transparent 2px), 
+      background-image: radial-gradient(circle at 20% 30%, #5a1a1a 2px, transparent 2px),
                         radial-gradient(circle at 80% 70%, #5a1a1a 1px, transparent 2px);
       background-size: 40px 40px;
     }
@@ -27,16 +26,14 @@
     .spidey-wrapper {
       max-width: 1100px;
       width: 100%;
-      background: #fef6f3; /* off-white with warmth */
+      background: #fef6f3;
       border-radius: 40px 40px 30px 30px;
       box-shadow: 0 20px 40px rgba(120, 20, 20, 0.5), 0 0 0 2px #a04040 inset;
       overflow: hidden;
       border: 1px solid #b35e5e;
-      transition: 0.3s;
       position: relative;
     }
 
-    /* spider-web pattern overlay (subtle) */
     .spidey-wrapper::before {
       content: '';
       position: absolute;
@@ -49,7 +46,6 @@
       z-index: 1;
     }
 
-    /* header – Spiderman maroon + white */
     .header-spidey {
       background: linear-gradient(145deg, #6b1a1a 0%, #8f2a2a 50%, #a83c3c 100%);
       padding: 2rem 2.5rem 1.8rem;
@@ -103,7 +99,6 @@
       color: #fce3d3;
     }
 
-    /* main grid */
     .main-grid {
       display: grid;
       grid-template-columns: 1fr 2.2fr;
@@ -113,7 +108,6 @@
       z-index: 2;
     }
 
-    /* sidebar – maroon tint */
     .sidebar {
       background: #f7ece6;
       padding: 2rem 1.8rem;
@@ -210,7 +204,6 @@
       color: #3d1a1a;
     }
 
-    /* right content */
     .content {
       padding: 2rem 2.2rem 2.5rem;
       background: #fcf6f2;
@@ -362,7 +355,6 @@
       margin: 0 6px;
     }
 
-    /* responsive */
     @media (max-width: 800px) {
       .main-grid {
         grid-template-columns: 1fr;
@@ -381,12 +373,11 @@
 </head>
 <body>
 <div class="spidey-wrapper">
-  <!-- header with Spiderman vibe -->
   <header class="header-spidey">
     <div class="name-title">
       <h1><i class="fas fa-spider" style="color: #f5d0c0; margin-right: 6px;"></i> Nur Farhana</h1>
       <div class="subhead">
-        <i class="fas fa-graduation-cap"></i> Diploma in Information Technology · POLIMAS
+        <i class="fas fa-graduation-cap"></i> Diploma in IT · POLIMAS
         <span style="margin:0 8px;">|</span> <i class="fas fa-shield-alt"></i> SPIDEY
       </div>
     </div>
@@ -395,9 +386,7 @@
     </div>
   </header>
 
-  <!-- main grid -->
   <div class="main-grid">
-    <!-- sidebar -->
     <aside class="sidebar">
       <div class="sidebar-section">
         <h3><i class="fas fa-user-graduate"></i> Education</h3>
@@ -443,9 +432,7 @@
       </div>
     </aside>
 
-    <!-- main content -->
     <div class="content">
-      <!-- summary / profile (custom) -->
       <section class="content-section">
         <h3><i class="fas fa-user-astronaut"></i> Profile</h3>
         <div class="summary-text">
@@ -456,7 +443,6 @@
         </div>
       </section>
 
-      <!-- work experience -->
       <section class="content-section">
         <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
         <div class="exp-item">
@@ -484,7 +470,6 @@
         </div>
       </section>
 
-      <!-- education (quick) -->
       <section class="content-section">
         <h3><i class="fas fa-university"></i> Education snapshot</h3>
         <div class="edu-item">
@@ -509,7 +494,6 @@
     </div>
   </div>
 
-  <!-- footer with Spiderman theme -->
   <div class="footer-spidey">
     <i class="fas fa-spider spider-icon"></i> 
     <span style="font-weight:600;">SPIDER-MAN</span> · MAROON & WHITE · 
