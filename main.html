@@ -3,503 +3,620 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spidey · Nur Farhana CV</title>
+  <title>Nurfarhana · CV with photo</title>
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
     }
 
     body {
-      background: #2b0f0f;
+      background: #fce4ec;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
       display: flex;
       justify-content: center;
+      align-items: center;
+      min-height: 100vh;
       padding: 2rem 1.5rem;
-      background-image: radial-gradient(circle at 20% 30%, #5a1a1a 2px, transparent 2px),
-                        radial-gradient(circle at 80% 70%, #5a1a1a 1px, transparent 2px);
-      background-size: 40px 40px;
+      color: #2d1e26;
     }
 
-    .spidey-wrapper {
+    .cv-card {
       max-width: 1100px;
       width: 100%;
-      background: #fef6f3;
-      border-radius: 40px 40px 30px 30px;
-      box-shadow: 0 20px 40px rgba(120, 20, 20, 0.5), 0 0 0 2px #a04040 inset;
-      overflow: hidden;
-      border: 1px solid #b35e5e;
-      position: relative;
+      background: #ffffff;
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 40px rgba(190, 80, 120, 0.12), 0 8px 20px rgba(200, 100, 130, 0.08);
+      padding: 2.5rem 2.8rem;
+      border: 1px solid #fcd4df;
+      transition: 0.2s;
     }
 
-    .spidey-wrapper::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background: repeating-linear-gradient(45deg, rgba(180, 60, 60, 0.02) 0px, rgba(180, 60, 60, 0.02) 2px, transparent 2px, transparent 8px);
-      z-index: 1;
-    }
-
-    .header-spidey {
-      background: linear-gradient(145deg, #6b1a1a 0%, #8f2a2a 50%, #a83c3c 100%);
-      padding: 2rem 2.5rem 1.8rem;
-      color: white;
+    /* ----- header: name + contact + photo ----- */
+    .header {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 5px solid #f0d0c0;
-      box-shadow: 0 4px 12px rgba(80, 10, 10, 0.4);
-      position: relative;
-      z-index: 2;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #ffe2ec;
+      padding-bottom: 1.2rem;
+      gap: 1rem 0.5rem;
     }
 
     .name-title h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      text-shadow: 3px 3px 0 #2f0a0a;
-      color: #fef0ea;
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: #6e334b;
+      line-height: 1.2;
     }
 
-    .name-title .subhead {
-      font-size: 1.1rem;
-      opacity: 0.9;
+    .name-title .badge {
+      font-size: 0.9rem;
+      color: #a05b72;
+      background: #fcecf0;
+      padding: 0.2rem 1.4rem;
+      border-radius: 30px;
+      border: 1px solid #f8d3df;
+      display: inline-block;
       margin-top: 0.2rem;
-      font-weight: 400;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.8rem 1.2rem;
+      background: #fef6f9;
+      padding: 0.4rem 1.5rem 0.4rem 1.8rem;
+      border-radius: 60px;
+      border: 1px solid #fad3e0;
+      font-size: 0.85rem;
+    }
+
+    .contact-info a {
+      color: #6e334b;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: 0.1s;
+    }
+    .contact-info a:hover {
+      color: #b35475;
+      text-decoration: underline;
+    }
+    .contact-info i {
+      color: #bf6885;
+      width: 1.1rem;
+      font-size: 0.95rem;
+    }
+    .contact-divider {
+      color: #f0b8cc;
+      font-weight: 300;
+    }
+
+    /* profile picture */
+    .profile-wrapper {
       display: flex;
       align-items: center;
-      gap: 8px;
-      color: #f8ddd6;
+      justify-content: center;
+      flex-shrink: 0;
     }
 
-    .spidey-badge {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(2px);
-      padding: 0.5rem 1.4rem;
-      border-radius: 60px;
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fccfdd;
+      background: #fce4ec;
+      box-shadow: 0 6px 14px rgba(190, 80, 120, 0.12);
+      transition: 0.2s ease;
+      display: block;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.02);
+      border-color: #b85b7a;
+    }
+
+    /* if image fails, fallback style is handled by the img itself */
+
+    /* grid */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 2.2rem;
+      margin-top: 0.2rem;
+    }
+
+    .section {
+      background: #fef8fa;
+      border-radius: 1.8rem;
+      padding: 1.4rem 1.6rem 1.6rem 1.6rem;
+      border: 1px solid #fce3ec;
+      margin-bottom: 1.8rem;
+    }
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
       font-weight: 600;
-      font-size: 0.9rem;
-      border: 2px solid #f5c8b0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #9c4b66;
+      margin-bottom: 1.2rem;
       display: flex;
       align-items: center;
       gap: 10px;
-      color: #ffe6dd;
-      box-shadow: 0 2px 0 #3d0f0f;
+      border-bottom: 1px dashed #fbc8d7;
+      padding-bottom: 0.6rem;
+    }
+    .section-title i {
+      font-size: 1.1rem;
+      width: 1.8rem;
+      color: #c26182;
     }
 
-    .spidey-badge i {
-      font-size: 1.5rem;
-      color: #fce3d3;
+    /* education */
+    .edu-item {
+      margin-bottom: 1.5rem;
     }
-
-    .main-grid {
-      display: grid;
-      grid-template-columns: 1fr 2.2fr;
-      gap: 0;
-      background: #fcf6f2;
-      position: relative;
-      z-index: 2;
+    .edu-item:last-child {
+      margin-bottom: 0;
     }
-
-    .sidebar {
-      background: #f7ece6;
-      padding: 2rem 1.8rem;
-      border-right: 2px solid #dbb6ae;
-      background-image: radial-gradient(circle at 10% 20%, rgba(150, 50, 50, 0.03) 0%, transparent 30%);
+    .edu-item .institute {
+      font-weight: 600;
+      color: #402834;
+      font-size: 1.05rem;
     }
-
-    .sidebar-section {
-      margin-bottom: 2.2rem;
-    }
-
-    .sidebar-section h3 {
+    .edu-item .institute i {
+      color: #b85b7a;
+      margin-right: 5px;
       font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #6e2a2a;
-      border-bottom: 2px solid #d7b0a4;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
+    }
+    .edu-item .meta {
       display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .sidebar-section h3 i {
-      color: #a14242;
-    }
-
-    .skill-tag {
-      display: inline-block;
-      background: white;
-      padding: 0.3rem 0.9rem;
-      border-radius: 30px;
-      font-size: 0.78rem;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      color: #6b4355;
+      font-size: 0.85rem;
+      margin: 0.1rem 0 0.2rem 0;
       font-weight: 500;
-      color: #3d1b1b;
-      margin: 0.2rem 0.25rem;
-      border: 1px solid #cfa79a;
-      box-shadow: 0 2px 4px rgba(110, 30, 30, 0.08);
     }
-
-    .skill-cat {
-      margin-bottom: 0.9rem;
-    }
-
-    .skill-cat strong {
-      display: block;
-      font-size: 0.8rem;
-      color: #5d2a2a;
-      margin-bottom: 0.25rem;
-    }
-
-    .sidebar ul {
-      list-style: none;
-    }
-
-    .sidebar ul li {
-      margin-bottom: 0.7rem;
+    .edu-item .desc {
       font-size: 0.9rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      color: #2f1a1a;
-    }
-
-    .sidebar ul li i {
-      color: #944040;
-      width: 1.2rem;
-      margin-top: 0.1rem;
-    }
-
-    .cert-item {
-      background: white;
-      padding: 0.4rem 1rem;
+      color: #3b2a33;
+      background: #ffffff;
+      padding: 0.2rem 1rem;
       border-radius: 40px;
       display: inline-block;
-      margin: 0.2rem 0.2rem;
-      font-size: 0.8rem;
+      border: 1px solid #f7d4e0;
+      margin-top: 0.2rem;
+    }
+    .edu-item .results {
+      font-size: 0.9rem;
+      background: #fcecf2;
+      padding: 0.15rem 0.9rem;
+      border-radius: 30px;
+      border: 1px solid #f8d0de;
+      color: #733f55;
+    }
+
+    /* work */
+    .work-item {
+      margin-bottom: 1.5rem;
+    }
+    .work-item:last-child {
+      margin-bottom: 0;
+    }
+    .work-item .role {
+      font-weight: 600;
+      color: #402834;
+      font-size: 1rem;
+    }
+    .work-item .company {
       font-weight: 500;
-      border: 1px solid #caa298;
-      color: #3d1a1a;
+      color: #7d4e63;
+      font-size: 0.9rem;
+    }
+    .work-item .period {
+      font-size: 0.8rem;
+      color: #946077;
+      background: #fcecf2;
+      padding: 0.1rem 0.9rem;
+      border-radius: 30px;
+      display: inline-block;
+      margin: 0.1rem 0 0.3rem 0;
+      border: 1px solid #fbd7e2;
+    }
+    .work-item ul {
+      list-style: none;
+      padding-left: 0.2rem;
+      margin-top: 0.3rem;
+    }
+    .work-item ul li {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: 0.25rem;
+      color: #2f212a;
+    }
+    .work-item ul li::before {
+      content: "▹";
+      color: #c26182;
+      position: absolute;
+      left: 0;
+      font-size: 0.9rem;
+    }
+
+    /* skills */
+    .skill-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .skill-group {
+      background: #fff8fa;
+      border-radius: 1.2rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid #fadce7;
+    }
+    .skill-group .label {
+      font-weight: 600;
+      color: #7a3b4f;
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.2px;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+    }
+    .skill-tags span {
+      background: #ffffff;
+      border: 1px solid #f3c4d4;
+      color: #402834;
+      font-size: 0.8rem;
+      padding: 0.15rem 0.9rem;
+      border-radius: 40px;
+      box-shadow: 0 1px 2px rgba(190, 90, 120, 0.04);
+    }
+    .skill-tags span i {
+      margin-right: 4px;
+      color: #bf6885;
+      font-size: 0.7rem;
+    }
+
+    .engineering-domains {
+      background: #fff8fa;
+      border-radius: 1.2rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid #fadce7;
+      margin-top: 0.2rem;
+    }
+    .engineering-domains .label {
+      font-weight: 600;
+      color: #7a3b4f;
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .domain-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.5rem;
+    }
+    .domain-tags span {
+      background: #fcf2f6;
+      border: 1px solid #f3c4d4;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.8rem;
+      border-radius: 40px;
+      color: #4d3340;
+    }
+
+    /* cert & lang */
+    .cert-item {
+      background: #fff8fa;
+      border-radius: 1.2rem;
+      padding: 0.7rem 1.2rem;
+      border: 1px solid #fadce7;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+    }
+    .cert-item i {
+      color: #b35475;
+      width: 1.6rem;
+      font-size: 1.1rem;
     }
 
     .lang-item {
-      background: white;
-      padding: 0.3rem 1.2rem;
-      border-radius: 60px;
-      display: inline-block;
-      margin: 0.2rem 0.3rem 0.2rem 0;
-      border: 1px solid #cfa79a;
-      font-weight: 500;
-      font-size: 0.9rem;
-      color: #3d1a1a;
-    }
-
-    .content {
-      padding: 2rem 2.2rem 2.5rem;
-      background: #fcf6f2;
-    }
-
-    .content-section {
-      margin-bottom: 2rem;
-    }
-
-    .content-section h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #582626;
+      background: #fff8fa;
+      border-radius: 1.2rem;
+      padding: 0.7rem 1.2rem;
+      border: 1px solid #fadce7;
       display: flex;
       align-items: center;
-      gap: 10px;
-      border-bottom: 2px solid #e3cbc2;
-      padding-bottom: 0.4rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .content-section h3 i {
-      color: #944040;
-      font-size: 1.2rem;
-    }
-
-    .summary-text {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #261818;
-      background: #fcf0ea;
-      padding: 1.2rem 1.5rem;
-      border-radius: 24px;
-      border: 1px solid #dbb6ae;
-    }
-
-    .exp-item {
-      background: #fcf0ea;
-      border-radius: 18px;
-      padding: 1rem 1.4rem;
-      margin-bottom: 1rem;
-      border: 1px solid #dbb6ae;
-      transition: 0.15s;
-    }
-
-    .exp-item:hover {
-      background: #f7e4db;
-      border-color: #b87a6a;
-    }
-
-    .exp-item .exp-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 6px;
-    }
-
-    .exp-item .exp-header h4 {
-      font-weight: 700;
-      color: #481f1f;
-    }
-
-    .exp-item .exp-header .date {
-      font-size: 0.8rem;
-      color: #754242;
-      background: #edd7ce;
-      padding: 0.15rem 0.9rem;
-      border-radius: 40px;
-    }
-
-    .exp-item ul {
+      gap: 12px;
+      font-size: 0.95rem;
       margin-top: 0.5rem;
-      padding-left: 0.2rem;
-      list-style: none;
     }
-
-    .exp-item ul li {
-      font-size: 0.9rem;
-      line-height: 1.6;
-      color: #261818;
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
-    }
-
-    .exp-item ul li i {
-      color: #944040;
-      font-size: 0.7rem;
-      margin-top: 0.4rem;
-      width: 0.9rem;
-    }
-
-    .edu-item {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      background: #fcf0ea;
-      padding: 1rem 1.4rem;
-      border-radius: 18px;
-      border: 1px solid #dbb6ae;
-      margin-bottom: 0.7rem;
-    }
-
-    .edu-item .edu-left {
-      font-weight: 600;
-      color: #481f1f;
-    }
-
-    .edu-item .edu-left span {
-      font-weight: 400;
-      color: #3f2323;
-      display: block;
-      font-size: 0.9rem;
-    }
-
-    .edu-item .edu-right {
-      text-align: right;
-      font-weight: 500;
-      color: #6e2a2a;
-    }
-
-    .edu-item .edu-right small {
-      font-weight: 300;
-      font-size: 0.8rem;
-      color: #4d2a2a;
-    }
-
-    .footer-spidey {
-      background: #dcc4ba;
-      padding: 0.8rem 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #2d1414;
-      border-top: 4px solid #a04040;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .footer-spidey i {
-      color: #9e3a3a;
-      margin: 0 4px;
-    }
-
-    .footer-spidey .spider-icon {
+    .lang-item i {
+      color: #b35475;
+      width: 1.6rem;
       font-size: 1.1rem;
-      margin: 0 6px;
+    }
+    .lang-item .fluency {
+      margin-left: auto;
+      background: #fce4ec;
+      padding: 0.1rem 1rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #733f55;
+    }
+    .lang-item:first-of-type {
+      margin-top: 0;
     }
 
-    @media (max-width: 800px) {
-      .main-grid {
+    .footer-note {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: #b06c84;
+      text-align: right;
+      border-top: 1px solid #fce4ec;
+      padding-top: 0.8rem;
+      opacity: 0.7;
+      letter-spacing: 0.2px;
+    }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      .cv-card {
+        padding: 1.8rem 1.2rem;
+      }
+      .grid-2 {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
-      .sidebar {
-        border-right: none;
-        border-bottom: 2px solid #dbb6ae;
-      }
-      .header-spidey {
+      .header {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
+        align-items: center;
+        text-align: center;
+        gap: 0.8rem;
+      }
+      .name-title {
+        order: 1;
+        width: 100%;
+      }
+      .profile-wrapper {
+        order: 0;
+        margin-bottom: 0.2rem;
+      }
+      .contact-info {
+        order: 2;
+        flex-wrap: wrap;
+        padding: 0.5rem 1.2rem;
+        border-radius: 40px;
+        font-size: 0.8rem;
+        width: 100%;
+        justify-content: center;
+      }
+      .contact-divider {
+        display: none;
+      }
+      .name-title h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section {
+        padding: 1rem 0.9rem;
+      }
+      .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+        background: transparent;
+        border: none;
+        padding: 0;
+      }
+      .contact-info a {
+        font-size: 0.82rem;
+      }
+      .contact-divider {
+        display: none;
+      }
+      .profile-pic {
+        width: 80px;
+        height: 80px;
       }
     }
   </style>
 </head>
 <body>
-<div class="spidey-wrapper">
-  <header class="header-spidey">
+
+<div class="cv-card">
+
+  <!-- HEADER with profile picture -->
+  <div class="header">
     <div class="name-title">
-      <h1><i class="fas fa-spider" style="color: #f5d0c0; margin-right: 6px;"></i> Nur Farhana</h1>
-      <div class="subhead">
-        <i class="fas fa-graduation-cap"></i> Diploma in IT · POLIMAS
-        <span style="margin:0 8px;">|</span> <i class="fas fa-shield-alt"></i> SPIDEY
-      </div>
+      <h1>Nurfarhana Binti Bashir</h1>
+      <div class="badge"><i class="fas fa-graduation-cap" style="margin-right: 6px;"></i> Digital Technology · POLIMAS</div>
     </div>
-    <div class="spidey-badge">
-      <i class="fas fa-spider"></i>  MAROON & WHITE  <i class="fas fa-crown" style="color: #fad6c0;"></i>
+
+    <!-- Profile picture -->
+    <div class="profile-wrapper">
+      <img 
+        src="CV"
+        alt="Nurfarhana profile"
+        class="profile-pic"
+        id="profileImg"
+      />
+      <!-- 
+        Replace the src with your actual image URL, for example:
+        src="nurfarhana.jpg" 
+        The current src is a cute SVG placeholder. 
+        If the real image fails, the fallback styling still shows.
+      -->
     </div>
-  </header>
 
-  <div class="main-grid">
-    <aside class="sidebar">
-      <div class="sidebar-section">
-        <h3><i class="fas fa-user-graduate"></i> Education</h3>
-        <div style="background:white; border-radius:20px; padding:1rem 1.2rem; border:1px solid #dbb6ae;">
-          <p style="font-weight:700; color:#481f1f;">Politeknik Sultan Abdul Halim Mu'adzam Shah</p>
-          <p style="font-size:0.9rem; color:#2f1a1a;">Diploma in Foundation of IT (Digital Tech)</p>
-          <p style="font-size:0.9rem; color:#6e2a2a;"><i class="fas fa-star" style="color:#a14242;"></i> CGPA: 3.63</p>
-          <p style="font-size:0.8rem; color:#5d2a2a;"><i class="far fa-calendar-alt"></i> 2024 – Present</p>
-          <hr style="margin: 0.5rem 0; border: 0.5px solid #e3cbc2;">
-          <p style="font-weight:600; color:#481f1f; font-size:0.9rem;">Maktab Mahmud Kuala Muda</p>
-          <p style="font-size:0.85rem; color:#2f1a1a;">SPM · 1A 3B+ 2B 2C+ 1C 2D</p>
-          <p style="font-size:0.8rem; color:#5d2a2a;"><i class="far fa-calendar-alt"></i> 2020 – 2024</p>
-        </div>
-      </div>
-
-      <div class="sidebar-section">
-        <h3><i class="fas fa-code"></i> Skills</h3>
-        <div class="skill-cat"><strong>Programming & Software</strong>
-          <span class="skill-tag">Verilog HDL</span><span class="skill-tag">C</span>
-          <span class="skill-tag">Python</span><span class="skill-tag">MATLAB</span>
-          <span class="skill-tag">Multisim</span><span class="skill-tag">ModelSim</span>
-          <span class="skill-tag">MS Office</span>
-        </div>
-        <div class="skill-cat"><strong>Engineering Domains</strong>
-          <span class="skill-tag">Digital Logic Design</span>
-          <span class="skill-tag">Circuit Simulation</span>
-          <span class="skill-tag">PCB Fundamentals</span>
-          <span class="skill-tag">Electronic Troubleshooting</span>
-          <span class="skill-tag">FPGA Basics</span>
-          <span class="skill-tag">Logic Gates & K‑Map</span>
-        </div>
-      </div>
-
-      <div class="sidebar-section">
-        <h3><i class="fas fa-certificate"></i> Certifications</h3>
-        <div><span class="cert-item"><i class="fas fa-check-circle" style="color:#944040;"></i> MATLAB Onramp – MathWorks</span></div>
-      </div>
-
-      <div class="sidebar-section">
-        <h3><i class="fas fa-language"></i> Languages</h3>
-        <span class="lang-item"><i class="fas fa-check-circle" style="color:#944040;"></i> Bahasa Melayu – Fluent</span>
-        <span class="lang-item"><i class="fas fa-check-circle" style="color:#944040;"></i> English – Fluent</span>
-      </div>
-    </aside>
-
-    <div class="content">
-      <section class="content-section">
-        <h3><i class="fas fa-user-astronaut"></i> Profile</h3>
-        <div class="summary-text">
-          <i class="fas fa-quote-left" style="color:#944040; opacity:0.5; margin-right:4px;"></i>
-          Aspiring digital technologist with a strong foundation in information technology, digital logic, and circuit simulation. 
-          Passionate about problem-solving and embedded systems. Experienced in industrial administration and fast‑paced service environments. 
-          Eager to apply technical and soft skills in a dynamic engineering setting.
-        </div>
-      </section>
-
-      <section class="content-section">
-        <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
-        <div class="exp-item">
-          <div class="exp-header">
-            <h4><i class="fas fa-building" style="color:#944040;"></i> Industrial Trainee · Pejabat Tenaga Kerja Sungai Petani</h4>
-            <span class="date"><i class="far fa-calendar-alt"></i> Jan 2024 – Jun 2024</span>
-          </div>
-          <ul>
-            <li><i class="fas fa-circle"></i> Assisted in labour relations and workforce administration tasks.</li>
-            <li><i class="fas fa-circle"></i> Supported documentation, data entry, and case processing activities.</li>
-            <li><i class="fas fa-circle"></i> Liaised with employers and employees to resolve workplace inquiries.</li>
-          </ul>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <h4><i class="fas fa-utensils" style="color:#944040;"></i> Food & Beverage Crew · Merdeka Beach Resort</h4>
-            <span class="date"><i class="far fa-calendar-alt"></i> 2023</span>
-          </div>
-          <ul>
-            <li><i class="fas fa-circle"></i> Delivered attentive customer service in a fast‑paced hospitality environment.</li>
-            <li><i class="fas fa-circle"></i> Managed food and beverage orders, ensuring accuracy and timely delivery.</li>
-            <li><i class="fas fa-circle"></i> Maintained cleanliness and hygiene standards across service areas.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="content-section">
-        <h3><i class="fas fa-university"></i> Education snapshot</h3>
-        <div class="edu-item">
-          <div class="edu-left">
-            POLIMAS · Diploma IT (Digital Tech)
-            <span>CGPA: 3.63</span>
-          </div>
-          <div class="edu-right">
-            2024 – Present
-          </div>
-        </div>
-        <div class="edu-item">
-          <div class="edu-left">
-            Maktab Mahmud Kuala Muda
-            <span>SPM: 1A 3B+ 2B 2C+ 1C 2D</span>
-          </div>
-          <div class="edu-right">
-            2020 – 2024
-          </div>
-        </div>
-      </section>
+    <div class="contact-info">
+      <a href="#"><i class="fas fa-map-pin"></i> Kota Kuala Muda, Kedah</a>
+      <span class="contact-divider">|</span>
+      <a href="tel:+60194997302"><i class="fas fa-phone-alt"></i> 0194997302</a>
+      <span class="contact-divider">|</span>
+      <a href="mailto:farhanabashir02@gmail.com"><i class="fas fa-envelope"></i> farhanabashir02@gmail.com</a>
+      <span class="contact-divider">|</span>
+      <a href="#" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/nurfarhanabashir</a>
     </div>
   </div>
 
-  <div class="footer-spidey">
-    <i class="fas fa-spider spider-icon"></i> 
-    <span style="font-weight:600;">SPIDER-MAN</span> · MAROON & WHITE · 
-    <i class="fas fa-shield-alt"></i>  “With great power comes great responsibility” 
-    <i class="fas fa-spider spider-icon"></i>
+  <!-- GRID -->
+  <div class="grid-2">
+
+    <!-- LEFT -->
+    <div class="left-col">
+      <!-- EDUCATION -->
+      <div class="section">
+        <div class="section-title"><i class="fas fa-university"></i> Education</div>
+
+        <div class="edu-item">
+          <div class="institute"><i class="fas fa-graduation-cap"></i> Universiti Malaysia Perlis (UniMAP)</div>
+          <div class="meta">
+            <span>Bachelor of Engineering Technology (System Electronic) with Honours</span>
+          </div>
+          <div class="desc"><i class="far fa-calendar-alt"></i> 2024 – Present</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="institute"><i class="fas fa-building-columns"></i> Politeknik Sultan Abdul Halim Mu'adzam Shah (POLIMAS)</div>
+          <div class="meta">
+            <span>Diploma in Foundation of Information Technology (Digital Technology)</span>
+            <span class="results"><i class="fas fa-star"></i> CGPA 3.63</span>
+          </div>
+          <div class="desc"><i class="far fa-calendar-alt"></i> 2020 – 2024</div>
+        </div>
+      </div>
+
+      <!-- WORK -->
+      <div class="section">
+        <div class="section-title"><i class="fas fa-briefcase"></i> Work Experience</div>
+
+        <div class="work-item">
+          <div class="role">Industrial Trainee</div>
+          <div class="company"><i class="fas fa-building" style="color:#b85b7a; margin-right: 4px;"></i> Pejabat Tenaga Kerja Sungai Petani</div>
+          <div class="period"><i class="far fa-calendar-alt"></i> January 2024 – June 2024</div>
+          <ul>
+            <li>Assisted in labour relations and workforce administration tasks.</li>
+            <li>Supported documentation, data entry, and case processing activities.</li>
+            <li>Liaised with employers and employees to resolve workplace inquiries.</li>
+          </ul>
+        </div>
+
+        <div class="work-item">
+          <div class="role">Food & Beverage Crew</div>
+          <div class="company"><i class="fas fa-umbrella-beach" style="color:#b85b7a; margin-right: 4px;"></i> Merdeka Beach Resort</div>
+          <div class="period"><i class="far fa-calendar-alt"></i> 2023</div>
+          <ul>
+            <li>Delivered attentive customer service in a fast-paced hospitality environment.</li>
+            <li>Managed food and beverage orders, ensuring accuracy and timely delivery.</li>
+            <li>Maintained cleanliness and hygiene standards across service areas.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right-col">
+      <!-- SKILLS -->
+      <div class="section">
+        <div class="section-title"><i class="fas fa-code"></i> Skills</div>
+        <div class="skill-block">
+          <div class="skill-group">
+            <span class="label"><i class="fas fa-laptop-code"></i> Programming &amp; Software</span>
+            <div class="skill-tags">
+              <span><i class="fas fa-microchip"></i> Verilog HDL</span>
+              <span><i class="fas fa-c"></i> C</span>
+              <span><i class="fab fa-python"></i> Python</span>
+              <span><i class="fas fa-chart-line"></i> MATLAB</span>
+              <span><i class="fas fa-bolt"></i> Multisim</span>
+              <span><i class="fas fa-cube"></i> ModelSim</span>
+              <span><i class="fas fa-file-alt"></i> MS Office</span>
+            </div>
+          </div>
+          <div class="engineering-domains">
+            <span class="label"><i class="fas fa-cogs"></i> Engineering Domains</span>
+            <div class="domain-tags">
+              <span>Digital Logic Design</span>
+              <span>Circuit Simulation</span>
+              <span>PCB Fundamentals</span>
+              <span>Electronic Troubleshooting</span>
+              <span>FPGA Basics</span>
+              <span>Logic Gates &amp; K-Map</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATIONS -->
+      <div class="section">
+        <div class="section-title"><i class="fas fa-certificate"></i> Certifications</div>
+        <div class="cert-item">
+          <i class="fas fa-award"></i>
+          <span><strong>MATLAB Onramp</strong> — MathWorks</span>
+        </div>
+      </div>
+
+      <!-- LANGUAGES -->
+      <div class="section">
+        <div class="section-title"><i class="fas fa-language"></i> Languages</div>
+        <div class="lang-item">
+          <i class="fas fa-comment"></i>
+          <span>Bahasa Melayu</span>
+          <span class="fluency"><i class="fas fa-check-circle"></i> Fluent</span>
+        </div>
+        <div class="lang-item">
+          <i class="fas fa-comment-dots"></i>
+          <span>English</span>
+          <span class="fluency"><i class="fas fa-check-circle"></i> Fluent</span>
+        </div>
+      </div>
+
+      <div class="footer-note">
+        <i class="fas fa-heart" style="color:#d67b9a;"></i> based on resume_nurfarhana.docx
+      </div>
+    </div>
   </div>
 </div>
+
+<!-- small script for fallback (optional) -->
+<script>
+  (function() {
+    const img = document.getElementById('profileImg');
+    if (img) {
+      img.onerror = function() {
+        // if image fails, keep the inline SVG placeholder (already there)
+        console.log('profile image fallback – using built-in placeholder');
+      };
+    }
+  })();
+</script>
+
 </body>
 </html>
